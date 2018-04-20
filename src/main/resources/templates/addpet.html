@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/save" method="post" th:object="${aPet}">
+    <input type="hidden" th:field="*{id}">
+    <span th:if="${#fields.hasErrors('animal')}" th:errors="*{animal}"></span>
+    <input type="text" th:field="*{animal}">
+    <input type="checkbox" th:field="*{lost}" th:value="*{lost}">
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
