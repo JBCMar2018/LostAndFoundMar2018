@@ -8,7 +8,9 @@
 <form action="/save" method="post" th:object="${aPet}">
     <input type="hidden" th:field="*{id}">
     <span th:if="${#fields.hasErrors('animal')}" th:errors="*{animal}"></span>
-    <input type="text" th:field="*{animal}">
+    <label for="animal">Enter animal type</label><input type="text" th:field="*{animal}">
+    <label for="name">Enter animal type</label><input type="text" th:field="*{name}">
+    <label for="image">Enter image</label><input type="text" th:field="*{image}">
     <input type="checkbox" th:field="*{lost}" th:value="*{lost}">
     <button type="submit">Save</button>
 </form>

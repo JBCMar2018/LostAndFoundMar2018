@@ -3,3 +3,11 @@ img
     height:200px;
 
 }
+.lost{
+    color:red;
+    font-family: 'Gugi', cursive;
+}
+.found{
+    color:green;
+    font-family: 'Gugi', cursive;
+}

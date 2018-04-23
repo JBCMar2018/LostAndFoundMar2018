@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>
     <a href="/add">Add a pet</a>
@@ -12,8 +14,11 @@
         <div th:each="eachPet:${petList}">
             <p th:text="${eachPet.animal}"></p>
             <p th:text="${eachPet.name}"></p>
-            <p th:text="${eachPet.lost}?'Lost':'Found'"></p>
-            <img class="rounded-circle" th:src="${eachPet.image}==null?'/img/lostpet.jpg':'${eachPet.image}'" alt="No pet">
+
+            <p th:text="${eachPet.lost}?'Lost':'Found'" th:classappend="${eachPet.lost}?'lost':'found'"></p>
+            <p th:text="${eachPet.image}"></p>
+            <img class="rounded-circle" th:src="${eachPet.image}==''?'/img/lostpet.jpg':${eachPet.image}" alt="No pet">
+
 
             <form action="/update" method="post">
                 <input type="hidden" name="id" th:value="${eachPet.id}">

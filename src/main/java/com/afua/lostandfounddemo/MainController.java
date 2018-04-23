@@ -40,6 +40,7 @@ public class MainController {
     @RequestMapping("/save")
     public String savingPet(@Valid @ModelAttribute("aPet") LostPet thePet, BindingResult result)
     {
+
         if(result.hasErrors())
         {
             return "addpet";
